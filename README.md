@@ -1,1 +1,3 @@
-# practical
+# Practical
+
+## SPCC Practical
