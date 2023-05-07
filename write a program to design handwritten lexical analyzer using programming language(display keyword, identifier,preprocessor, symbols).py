@@ -31,6 +31,25 @@ tokens = tokenize(code)
 for token in tokens:
     print(token)
 
+    Output:
+        ('IDENTIFIER', 'int')
+('IDENTIFIER', 'main')
+('SYMBOL', '(')
+('SYMBOL', ')')
+('SYMBOL', '{')
+('IDENTIFIER', 'printf')
+('SYMBOL', '(')
+('IDENTIFIER', 'Hello')
+('SYMBOL', ',')
+('IDENTIFIER', 'world')
+('IDENTIFIER', 'n')
+('SYMBOL', ')')
+('SYMBOL', ';')
+('IDENTIFIER', 'return')
+('SYMBOL', ';')
+('SYMBOL', '}')
+
+Note : 
     
     This program defines regular expressions for keywords, identifiers, preprocessor directives, and symbols, and combines them into a single pattern using the | operator. The tokenize() function takes a string of code, searches for matches of the pattern using re.finditer(), and categorizes each match as an identifier, preprocessor directive, keyword, or symbol based on its regular expression. The function returns a list of tuples, each containing a token type and the corresponding token value.
 
