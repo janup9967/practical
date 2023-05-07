@@ -37,3 +37,13 @@ temp = a*b*c  # eliminate common subexpressions
 simplified_expr = temp*3 + a*b
 print(simplified_expr)
 #output - 78
+
+
+
+# import sympy
+# x, y ,a = sympy.symbols('x y a')
+
+# def Algebraic_simplicaation(expr):
+#     return sympy.simplify(expr)
+
+# print(Algebraic_simplicaation('x-x - x*1 + x*x + 2*x*y +1-1'))
