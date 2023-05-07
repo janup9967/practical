@@ -64,3 +64,45 @@ for x in symbolTable:
 
 print('\n\nOperands:', operands)
 print('')
+
+
+'''
+LINE 1:['', 'JOHN', 'START', '0\n']
+LINE 2:['USING', '*,15\n']
+LINE 3:['L', '1,FOUR\n']
+LINE 4:['A', '1,FIVE\n']
+LINE 5:['ST', '1,TEMP\n']
+LINE 6:['FOUR', 'DC', "F'4\n"]
+LINE 7:['FIVE', 'DC', "F'5\n"]
+LINE 8:['TEMP', 'DS', '1F\n']
+LINE 9:['END']
+
+
+MOT:
+mnemonic        binary_op       ins_length      ins_format
+L               58              4               RX
+A               5A              4               RX
+ST              50              4               RX
+
+
+POT:
+mnemonic        opcode
+START           OPCODE FOR START
+USING           OPCODE FOR USING
+DC              OPCODE FOR DC
+DC              OPCODE FOR DC
+DS              OPCODE FOR DS
+END             OPCODE FOR END
+
+
+Symbols:
+symbol  value   length  relocation
+        0       0       R
+JOHN    0       0       R
+FOUR    12      4       R
+FIVE    16      4       R
+TEMP    20      4       R
+
+
+Operands: [(['0'], 'line: 1'), (['*', '15'], 'line: 2'), (['1', 'FOUR'], 'line: 3'), (['1', 'FIVE'], 'line: 4'), (['1', 'TEMP'], 'line: 5'), (["F'4"], 'line: 6'), (["F'5"], 'line: 7'), (['1F'], 'line: 8')]
+'''
