@@ -96,3 +96,42 @@ while True:
                 
     except StopIteration:
         break
+        
+        
+'''
+MNT is 
+('INCR', 0)
+('FOOBAR', 4)
+('HARAMBE', 9)
+
+MDT is 
+['INCR', '#1']
+L AX,#1
+A AX,1
+MEND
+['FOOBAR', '#1', '#2']
+L AX,#1
+L BX,#2
+ST AX,BX
+MEND
+['#1', 'HARAMBE', '#2']
+#1 SR #2,1
+RR #2,2
+MEND
+
+ALAs are
+('INCR', {'&ARG1': '#1'})
+('FOOBAR', {'&ARG1': '#1', '&ARG2': '#2'})
+('HARAMBE', {'&LAB': '#1', '&ARG1': '#2'})
+
+Final Output is
+START 0
+L AX,69
+A AX,1
+L AX,69
+L BX,96
+ST AX,BX
+LOOP SR 69,1
+RR 69,2
+DC F'69'
+END'''
