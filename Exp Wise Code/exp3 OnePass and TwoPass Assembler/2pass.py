@@ -247,3 +247,89 @@ def performPassTwo(instructions, lc, mot, lt, st, op1, symbols, opcodes, argumen
 
 
 performPassOne(instructions)
+
+'''
+MOT: 
+  Opcode Binary Opcode  Length Format
+0      L             -       4    001
+1      A             -       4    001
+2     ST             -       4    001
+
+
+POT: 
+  Pseudo Opcode   Address
+0         START  P1 START
+1           END    P1 END
+2         USING  P1 USING
+3          DROP   P1 DROP
+4            DC     P1 DC
+5            DS     P1 DS
+
+
+LT:
+  Literal  Value  Length Relocation
+0    F'4'     12       4          R
+1    F'5'     16       4          R
+
+
+ST:
+  Symbol Value  Length Relocation
+0     Ni     0       1          R
+1   FOUR    12       4          R
+2   FIVE    16       4          R
+3   TEMP    20       4          R
+
+
+Output of PASS 1:
+   Relative Address Mnemonic
+0                 0        -
+1                 0        -
+2                 0    L 1,-
+3                 4    A 1,-
+4                 8   ST 1,-
+5                12        4
+6                16        5
+7                20        -
+8                20        -
+BT: 
+    Register Availability  Contents
+0          0            N         0
+1          1            N         0
+2          2            N         0
+3          3            N         0
+4          4            N         0
+5          5            N         0
+6          6            N         0
+7          7            N         0
+8          8            N         0
+9          9            N         0
+10        10            N         0
+11        11            N         0
+12        12            N         0
+13        13            N         0
+14        14            N         0
+15        15            Y         0
+
+Output of PASS 2:
+   Relative Address       Mnemonic
+0                 0              -
+1                 0              -
+2                 0   L 1,16(0,15)
+3                 4   A 1,12(0,15)
+4                 8  ST 1,20(0,15)
+5                12              4
+6                16              5
+7                20              -
+8                20              -
+
+Result:
+  Symbol Opcode Operand  Relative Address  PASS 1         PASS 2
+0      -  USING    *,15                 0       -              -
+1      -      L  1,FIVE                 0       -              -
+2      -      A  1,FOUR                 0   L 1,-   L 1,16(0,15)
+3      -     ST  1,TEMP                 4   A 1,-   A 1,12(0,15)
+4   FOUR     DC    F'4'                 8  ST 1,-  ST 1,20(0,15)
+5   FIVE     DC    F'5'                12       4              4
+6   TEMP     DS    1'F'                16       5              5
+7      -    END       -                20       -              -
+'''
